@@ -1,0 +1,66 @@
+.box{
+	text-align: center;
+   background-color: #14b9d6;
+   color: white;
+}
+
+.twopoints{
+	float: right;
+}
+
+
+.btn-circle.btn-lg {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+  bottom: 10px;
+  right: 10px;
+}
+
+input{
+  margin-bottom: 10px;
+}
+.hidden{
+	visibility: hidden;
+}
+.visible{
+	visibility: visible;
+}
+.error{
+  color: #C7254E;
+  text-align: center;
+}
+.pop{
+	color: white;
+}
+.popover-title{
+	color: black;
+}
+.popover-content{
+	color: black;
+}
+.vertical-center {
+  min-height: 100%;  
+  min-height: 100vh; 
+
+  display: flex;
+  align-items: center;
+}
+.modal-header{
+  background-color: #14B9D6;
+  color: white;
+}
+.red{
+	background-color: #C7254E;
+}
+@media(max-width: 991px){
+	.twopoints{
+	visibility: hidden;
+}
+}
+
+

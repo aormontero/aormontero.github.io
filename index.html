@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html ng-app="app" >
+  <head>
+    <title>Clock</title>
+    <meta charset="utf-8">
+      <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/controller.js"></script>
+  </head>
+<body>
+  
+<!--Start Container-->
+
+  <div ng-controller="appCont" class="container">
+     
+    <div class="row vertical-center">
+    
+
+      <div  class="col-md-12 clock col-centered">
+      <audio id="audio1" src="alarm/sound1.mp3"></audio>
+      <audio id="audio2" src="alarm/sound2.mp3"></audio>
+
+<div class="col-md-12 column headerpad">
+            <h1 class="header text-center">Ariel's Clock</h1>
+        </div>
+
+
+      <div class="col-md-3"></div>
+      <div id="clockp" class="col-md-6 box" ng-click="disabAlarm();">
+      <div  class="col-md-12 head" >
+        <a href="#" data-toggle="popover"  class="pop pull-right" title="SlideBeanClockHelp" data-content="To program new alarm, press the down button and if you like turn off the alarm you only have to click in the the panel." data-placement="bottom"><i class="fa fa-question"></i>
+</a>
+
+  
+
+
+
+      </div>
+      <div class="col-md-4"><h1>{{ clock | date:'HH'}}<span class="twopoints">:</span></h1><h4>Hours</h4></div>
+      <div class="col-md-4"><h1>{{ clock | date:'mm'}}<span class="twopoints">:</span></h1><h4>Minutes</h4></div>
+      <div class="col-md-4"><h1>{{ clock | date:'ss'}}</h1><h4>Seconds</h4></div>
+    
+      </div>
+      <div class="col-md-3"></div>
+      <a  id="pAlar" data-toggle="modal" data-target="#myAlarm" title="Set Alarm" class="btn btn-info btn-circle btn-lg"><i class="fa fa-clock-o"></i>
+</a>
+    
+     
+     <!-- Modal -->
+<div class="modal fade" id="myAlarm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Programar Alarma</h4>
+      </div>
+      
+<form role="form" id="footer-form"  name="alarmForm" ng-submit="submitForm(alarmForm.$valid)" novalidate>
+
+
+      <div class="modal-body">
+
+      <div class="form-group">
+        Hour: 
+        <input type="number" name="input" ng-model="alarma.hour" min="0" max="23" class="form-control" required/>
+        <span class="error" ng-show="alarmForm.input.$error.required">Required!</span>
+        <span class="error" ng-show="alarmForm.input.$error.number"> Not valid number!</span>
+
+
+
+      </div>
+        
+         <div class="form-group">
+        Minutes: 
+        <input type="number" name="input2" ng-model="alarma.minutes" min="0" max="59" class="form-control" required/>
+        <span class="error" ng-show="alarmForm.input2.$error.required">Required!</span>
+        <span class="error" ng-show="alarmForm.input2.$error.number">Not valid number!</span>
+      </div>
+
+      <div class="form-group">
+        
+        <div class="form-group">
+  <label for="sel1">Select list:</label>
+  <select class="form-control" ng-model="alarma.alarm"  ng-options="sound.soundID as sound.soundName for sound in sounds"
+          required>
+  
+  </select>
+   <span class="error" ng-show="alarmForm.input2.$error.required">Required!</span>
+</div>
+
+      </div>
+
+      <div class="modal-footer">
+      
+        <button type="submit"  ng-click="setAlarm()"ng-disabled="alarmForm.$invalid" class="btn btn-primary pull-right"><i class="fa fa-floppy-o"></i>
+ Guardar</button>
+      </div>
+</form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+      </div>
+    </div>
+  </div>
+
+   
+
+<!--End Container-->
+
+</body>
+
+</html>
+
+
+
+                            
+
